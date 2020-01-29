@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/davidgovea/react-native-wheel-datepicker#readme",
   "dependencies": {
+    "date-fns": "^2.9.0",
     "moment": "^2.19.1"
   },
   "devDependencies": {

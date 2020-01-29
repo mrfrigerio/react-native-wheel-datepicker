@@ -3,6 +3,8 @@ import { ColorPropType, StyleSheet, View, ViewPropTypes as RNViewPropTypes } fro
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import Picker from './picker';
+import { format, setMonth } from 'date-fns'
+import pt_BR from 'date-fns/locale/pt-BR'
 
 const ViewPropTypes = RNViewPropTypes || View.propTypes;
 
@@ -77,7 +79,7 @@ export default class DatePicker extends PureComponent {
     const maxYear = maximumDate.getFullYear();
 
     for (let i = 1; i <= 12; i += 1) {
-      this.state.monthRange.push({ value: i, label: `${i}${labelUnit.month}` });
+      this.state.monthRange.push({ value: i, label: `${format(setMonth(new Date(), i - 1), 'MMMM', { locale: pt_BR })}${labelUnit.month}` });
     }
 
     this.state.yearRange.push({ value: minYear, label: `${minYear}${labelUnit.year}` });
